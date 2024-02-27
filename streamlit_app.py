@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import requests
+from streamlit_card import card
 
 
 def fetch_card_templates():
@@ -23,4 +24,6 @@ def fetch_card_templates():
 
 card_templates_data = fetch_card_templates()
 
-st.write(card_templates_data)
+card_templates_df = pd.DataFrame(card_templates_data['items'])
+#st.write(card_templates_data['items'])
+st.write(card_templates_df)
