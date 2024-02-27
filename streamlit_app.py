@@ -25,5 +25,5 @@ def fetch_card_templates():
 card_templates_data = fetch_card_templates()
 
 card_templates_df = pd.DataFrame(card_templates_data['items'])
-#st.write(card_templates_data['items'])
-st.write(card_templates_df)
+st.write(card_templates_data['items'])
+#st.write(card_templates_df)
