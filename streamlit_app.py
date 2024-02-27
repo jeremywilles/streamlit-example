@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import requests
+import streamlit_card
 from streamlit_card import card
 
 
