@@ -20,6 +20,7 @@ def fetch_card_templates():
         print(e)
         return []
     
+
 card_templates_data = fetch_card_templates()
-card_templates_df = pd.DataFrame(card_templates_data)
-st.write(card_template_data)
+
+st.write(card_templates_data)
