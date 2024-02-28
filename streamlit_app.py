@@ -6,7 +6,7 @@ import requests
 from streamlit_card import card
 
 
-st.image("https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg" caption="GetOurData Logo")
+st.image('https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg', caption='GetOurData')
 
 
 def fetch_card_templates():
