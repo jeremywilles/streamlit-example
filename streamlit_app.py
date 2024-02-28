@@ -37,10 +37,10 @@ for val in data:
     dyres = variable + str(count) 
     
     res = card(
-        item=val['description'],
-        text=val['category'],
-        image=val['iconURL'],
-        styles={
+        title = val['description'],
+        text = val['category'],
+        image = val['iconURL'],
+        styles = {
             "card": {
                 "width": "100px",
                 "height": "100px",
