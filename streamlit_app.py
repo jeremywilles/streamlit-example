@@ -36,7 +36,7 @@ for val in data:
     count = count+1
     variable = 'res'
     dyres = variable + str(count) 
-    if (count % 4 == 1):
+    if (count % 3 == 1):
         with col1:
             
             res = card(
@@ -56,7 +56,7 @@ for val in data:
                     }
                 }
             )
-    if (count % 4 == 2):
+    if (count % 3 == 2):
         with col2:
             
             res = card(
@@ -65,7 +65,7 @@ for val in data:
                 image = val['iconURL'],
                 styles = {
                     "card": {
-                        "width": "500px",
+                        "width": "100%",
                         "height": "300px",
                         "border-radius": "10px",
                         "box-shadow": "0 0 10px rgba(0,0,0,0.5)"
