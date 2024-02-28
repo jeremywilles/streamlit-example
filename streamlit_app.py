@@ -36,8 +36,9 @@ for val in data:
     count = count+1
     variable = 'res'
     dyres = variable + str(count) 
-    if(count%4 == 1):
+    if (count % 4 == 1):
         with col1:
+            st.header('col 1')
             res = card(
                 title = val['description'],
                 text = val['category'],
@@ -55,8 +56,9 @@ for val in data:
                     }
                 }
             )
-    if(count%4 == 2):
-        with col1:
+    if (count % 4 == 2):
+        with col2:
+            st.header('col 2')
             res = card(
                 title = val['description'],
                 text = val['category'],
