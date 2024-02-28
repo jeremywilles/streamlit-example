@@ -8,6 +8,14 @@ from streamlit_card import card
 
 st.image('https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg', caption='GetOurData')
 
+name, pw = st.columns(2, gap='small')
+
+with name:
+    email = st.text_input('Email:')
+
+with pw:
+    password = st.text_input('Password:', type='password')
+
 
 def fetch_card_templates():
     try:
@@ -33,13 +41,13 @@ card_templates_df = pd.DataFrame(card_templates_data['items'])
 # adding a comment
 
 data = card_templates_data['items']
-col1, col2, col3 = st.columns(3, gap='small')
+col1, col2, col3, col4 = st.columns(4, gap='small')
 count = 0
 for val in data:
     count = count+1
     variable = 'res'
     dyres = variable + str(count) 
-    if (count % 3 == 0):
+    if (count % 4 == 0):
         with col3:
             
             res = card(
@@ -59,7 +67,7 @@ for val in data:
                     }
                 }
             )
-    if (count % 3 == 1):
+    if (count % 4 == 1):
         with col1:
             
             res = card(
@@ -79,8 +87,28 @@ for val in data:
                     }
                 }
             )
-    if (count % 3 == 2):
+    if (count % 4 == 2):
         with col2:
+            
+            res = card(
+                title = val['description'],
+                text = val['category'],
+                image = val['iconURL'],
+                styles = {
+                    "card": {
+                        "width": "100%",
+                        "height": "300px",
+                        "border-radius": "10px",
+                        "box-shadow": "0 0 10px rgba(0,0,0,0.5)"
+                    
+                    },
+                    "text": {
+                        "font-family": "serif"
+                    }
+                }
+            )
+    if (count % 4 == 3):
+        with col4:
             
             res = card(
                 title = val['description'],
