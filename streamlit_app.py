@@ -38,15 +38,15 @@ for val in data:
     dyres = variable + str(count) 
     if (count % 4 == 1):
         with col1:
-            st.header('col 1')
+            
             res = card(
                 title = val['description'],
                 text = val['category'],
                 image = val['iconURL'],
                 styles = {
                     "card": {
-                        "width": "300px",
-                        "height": "300px",
+                        "width": "10vw",
+                        "height": "10vw",
                         "border-radius": "10px",
                         "box-shadow": "0 0 10px rgba(0,0,0,0.5)"
                     
@@ -58,7 +58,7 @@ for val in data:
             )
     if (count % 4 == 2):
         with col2:
-            st.header('col 2')
+            
             res = card(
                 title = val['description'],
                 text = val['category'],
