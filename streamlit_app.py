@@ -46,7 +46,7 @@ for val in data:
                 styles = {
                     "card": {
                         "width": "200vw",
-                        "height": "200vw",
+                        "height": "400vw",
                         "border-radius": "10px",
                         "box-shadow": "0 0 10px rgba(0,0,0,0.5)"
                     
@@ -65,8 +65,8 @@ for val in data:
                 image = val['iconURL'],
                 styles = {
                     "card": {
-                        "width": "300vw",
-                        "height": "300vw",
+                        "width": "200vw",
+                        "height": "400vw",
                         "border-radius": "10px",
                         "box-shadow": "0 0 10px rgba(0,0,0,0.5)"
                     
