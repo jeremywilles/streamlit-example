@@ -37,7 +37,7 @@ for val in data:
     variable = 'res'
     dyres = variable + str(count) 
     if (count % 3 == 0):
-        with col1:
+        with col3:
             
             res = card(
                 title = val['description'],
