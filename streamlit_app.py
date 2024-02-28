@@ -30,7 +30,7 @@ card_templates_df = pd.DataFrame(card_templates_data['items'])
 # adding a comment
 
 data = card_templates_data['items']
-col1, col2, col3, col4 = st.columns(4, gap='small')
+col1, col2, col3 = st.columns(3, gap='small')
 count = 0
 for val in data:
     count = count+1
