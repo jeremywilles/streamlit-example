@@ -30,11 +30,12 @@ card_templates_df = pd.DataFrame(card_templates_data['items'])
 # adding a comment
 
 data = card_templates_data['items']
-count=0
+count = 0
 for val in data:
     count = count+1
-    dyres = variable + str(count) 
     variable = 'res'
+    dyres = variable + str(count) 
+    
     res = card(
         item=val['description'],
         text=val['category'],
