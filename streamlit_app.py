@@ -5,10 +5,13 @@ import streamlit as st
 import requests
 from streamlit_card import card
 
+st.header('Select Multiple API Data Sources')
 
-st.image('https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg', caption='GetOurData')
+st.image('https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg')
 
-name, pw = st.columns(2, gap='small')
+st.divider()
+
+name, pw = st.columns(2, gap='large')
 
 with name:
     email = st.text_input('Email:')
