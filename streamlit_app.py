@@ -5,7 +5,10 @@ import streamlit as st
 import requests
 from streamlit_card import card
 
-
+st.set_page_config(
+    page_title="GetOurData API Selection",
+    layout="wide"
+)
 
 st.image('https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg')
 
@@ -140,7 +143,15 @@ for val in data:
             )
             
             if res:
-                st.write(val['templateAPIID'], email, password)
+                #st.write(val['templateAPIID'], email, password)
+                values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
+
+                if values in data_list:
+                    data_list.remove(values)
+                else:
+                    data_list.append(values)
+                st.write(data_list)
+                    
 
 
 '''
@@ -150,6 +161,7 @@ ELSE
     append
 
 data_list= [
-    {templateapiID: 'a;alkkjlsfdkjlfddsfjk;', Email: email, Password: password}
+
+    {'templateAPIID': '089e9ec4-a7fc-11ed-81a5-062e82398976', 'Email': email, 'Password': password}
 ]
 '''
