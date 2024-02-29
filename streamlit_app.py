@@ -150,7 +150,7 @@ for val in data:
                 }
             )
             
-            st.button('Add API', key=val['templateAPIID'] on_click=data_insert, args=[val['templateAPIID'], email, password])
+            st.button('Add API', key=val['templateAPIID'], on_click=data_insert, args=[val['templateAPIID'], email, password], use_container_width=True)
 #             if res:
 #                 st.write(res)
 #                 #st.write(val['templateAPIID'], email, password)
