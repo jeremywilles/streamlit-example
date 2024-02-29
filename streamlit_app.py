@@ -152,6 +152,8 @@ for val in data:
                 else:
                     data_list.append(values)
                 st.write(data_list)
+                
+                res = False
                     
 
 
