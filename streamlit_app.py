@@ -140,4 +140,16 @@ for val in data:
             )
             
             if res:
-                st.write(val['templateAPIID'])
+                st.write(val['templateAPIID'], email, password)
+
+
+'''
+IF in data_list
+    pop
+ELSE
+    append
+
+data_list= [
+    {templateapiID: 'a;alkkjlsfdkjlfddsfjk;', Email: email, Password: password}
+]
+'''
