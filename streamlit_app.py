@@ -76,7 +76,7 @@ for val in data:
                         "font-family": "serif"
                     }
                 }
-                st.button('Click Me')
+                
             )
     if (count % 4 == 1):
         with col1:
