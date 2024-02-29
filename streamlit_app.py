@@ -25,8 +25,10 @@ name, pw, button1 = st.columns(3, gap='large')
 
 
 with pw:
+    newuser = st.radio(["New User", "Existing User"])
     email = st.text_input('Email:')
-    password = st.text_input('Password:', type='password')
+    if newuser == 'Existing User':
+        password = st.text_input('Password:', type='password')
     st.button('Submit')
 
 
