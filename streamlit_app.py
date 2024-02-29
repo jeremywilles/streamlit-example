@@ -22,14 +22,15 @@ with img2:
 
 name, pw, button1 = st.columns(3, gap='large')
 
-with name:
-    email = st.text_input('Email:')
+
 
 with pw:
+    email = st.text_input('Email:')
     password = st.text_input('Password:', type='password')
-
-with button1:
     st.button('Submit')
+
+
+    
 
 st.divider()
 
