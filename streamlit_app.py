@@ -5,11 +5,13 @@ import streamlit as st
 import requests
 from streamlit_card import card
 
-st.header('Select Multiple API Data Sources')
+
 
 st.image('https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg')
 
-st.divider()
+st.header('Select Multiple API Data Sources')
+
+
 
 name, pw = st.columns(2, gap='large')
 
@@ -19,6 +21,7 @@ with name:
 with pw:
     password = st.text_input('Password:', type='password')
 
+st.divider()
 
 def fetch_card_templates():
     try:
@@ -42,6 +45,7 @@ card_templates_df = pd.DataFrame(card_templates_data['items'])
 #st.write(card_templates_data['items'])
 #st.write(card_templates_df)
 # adding a comment
+data_list = []
 
 data = card_templates_data['items']
 col1, col2, col3, col4 = st.columns(4, gap='small')
