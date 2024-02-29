@@ -25,7 +25,7 @@ name, pw, button1 = st.columns(3, gap='large')
 
 
 with pw:
-    newuser = st.radio("New or Existing User?",["New User", "Existing User"])
+    newuser = st.radio("",["New User", "Existing User"])
     email = st.text_input('Email:')
     if newuser == 'Existing User':
         password = st.text_input('Password:', type='password')
