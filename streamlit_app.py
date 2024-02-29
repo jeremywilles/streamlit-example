@@ -143,6 +143,7 @@ for val in data:
             )
             
             if res:
+                st.write(res)
                 #st.write(val['templateAPIID'], email, password)
                 values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
 
