@@ -29,7 +29,8 @@ with pw:
     email = st.text_input('Email:')
     if newuser == 'Existing User':
         password = st.text_input('Password:', type='password')
-    st.button('Submit')
+    if email != '':
+        st.button('Submit')
 
 
     
