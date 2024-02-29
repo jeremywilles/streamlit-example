@@ -150,17 +150,17 @@ for val in data:
                 }
             )
             
-            st.button('Add API', key=val['templateAPIID'], on_click=data_insert, args=[val['templateAPIID'], email, password], use_container_width=True)
-#             if res:
-#                 st.write(res)
-#                 #st.write(val['templateAPIID'], email, password)
-#                 values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
+#           st.button('Add API', key=val['templateAPIID'], on_click=data_insert, args=[val['templateAPIID'], email, password], use_container_width=True)
+            if res:
+                #st.write(res)
+                #st.write(val['templateAPIID'], email, password)
+                values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
 
-#                 if values in data_list:
-#                     data_list.remove(values)
-#                 else:
-#                     data_list.append(values)
-#                 st.write(data_list)
+                if values in data_list:
+                    data_list.remove(values)
+                else:
+                    data_list.append(values)
+                #st.write(data_list)
                 
                 
 # def data_insert(templateID, email, password):
@@ -173,14 +173,14 @@ for val in data:
 
 
 
-'''
-IF in data_list
-    pop
-ELSE
-    append
+# '''
+# IF in data_list
+#     pop
+# ELSE
+#     append
 
-data_list= [
+# data_list= [
 
-    {'templateAPIID': '089e9ec4-a7fc-11ed-81a5-062e82398976', 'Email': email, 'Password': password}
-]
-'''
+#     {'templateAPIID': '089e9ec4-a7fc-11ed-81a5-062e82398976', 'Email': email, 'Password': password}
+# ]
+# '''
