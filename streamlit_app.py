@@ -139,5 +139,5 @@ for val in data:
                 }
             )
             
-            if res:
-                st.write(val['description'])
+    if res:
+        st.write(val['description'])
