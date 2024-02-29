@@ -44,7 +44,14 @@ def fetch_card_templates():
         print(e)
         return []
     
-
+def data_insert(templateID, email, password):
+    values = {'templateAPIID': templateID, 'Email': email, 'Password': password}
+    if values in data_list:
+        data_list.remove(values)
+    else:
+        data_list.append(values)
+    st.write(data_list)
+    
 card_templates_data = fetch_card_templates()
 
 card_templates_df = pd.DataFrame(card_templates_data['items'])
@@ -81,6 +88,7 @@ for val in data:
                 }
                 
             )
+            
     if (count % 4 == 1):
         with col1:
             
@@ -142,19 +150,27 @@ for val in data:
                 }
             )
             
-            if res:
-                st.write(res)
-                #st.write(val['templateAPIID'], email, password)
-                values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
+            st.button('Add API', on_click=data_insert, args=[val['templateAPIID'], email, password])
+#             if res:
+#                 st.write(res)
+#                 #st.write(val['templateAPIID'], email, password)
+#                 values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
 
-                if values in data_list:
-                    data_list.remove(values)
-                else:
-                    data_list.append(values)
-                st.write(data_list)
+#                 if values in data_list:
+#                     data_list.remove(values)
+#                 else:
+#                     data_list.append(values)
+#                 st.write(data_list)
                 
-                res = False
-                    
+                
+# def data_insert(templateID, email, password):
+#     values = {'templateAPIID': templateID, 'Email': email, 'Password': password}
+#     if values in data_list:
+#         data_list.remove(values)
+#     else:
+#         data_list.append(values)
+#     st.write(data_list)
+
 
 
 '''
