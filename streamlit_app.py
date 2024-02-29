@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.image('https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg')
+st.image('https://uploads-ssl.webflow.com/632dd68fe0b7c272647b519b/63346c400e5b737f80250c4a_GoD%20Logo%20(no%20tagline).svg.svg', width=450)
 
 st.header('Select Multiple API Data Sources')
 
