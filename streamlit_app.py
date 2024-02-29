@@ -13,13 +13,16 @@ st.header('Select Multiple API Data Sources')
 
 
 
-name, pw = st.columns(2, gap='large')
+name, pw, button1 = st.columns(3, gap='large')
 
 with name:
     email = st.text_input('Email:')
 
 with pw:
     password = st.text_input('Password:', type='password')
+
+with button1:
+    st.button('Submit')
 
 st.divider()
 
@@ -73,6 +76,7 @@ for val in data:
                         "font-family": "serif"
                     }
                 }
+                st.button('Click Me')
             )
     if (count % 4 == 1):
         with col1:
