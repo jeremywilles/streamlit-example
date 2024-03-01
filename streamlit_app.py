@@ -5,6 +5,42 @@ import streamlit as st
 import requests
 from streamlit_card import card
 
+def post_to_vinyl(data_list, email, password):
+
+    url = 'https://app.getourdata.com/rest/v1/getourdata/tableaudataconnector'
+
+    headers = {'X-API-KEY': "Vzg_5NsT6_zv1cLxvG5bSQ", "Content-Type": "application/json"}
+
+
+
+    try:
+        requests.post(url, headers=headers, data = data_list)
+    except Exception as error:
+         print("error posting to vinyl: ", error)
+
+def fetch_card_templates():
+    try:
+        url = 'https://app.getourdata.com/rest/v1/getourdata/getapi'
+        headers = {
+            'x-api-key': 'Vzg_5NsT6_zv1cLxvG5bSQ',
+            'content-type': 'application/json'
+        }
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        data = response.json()
+        return data
+    except Exception as e:
+        print(e)
+        return []
+    
+def data_insert(templateID, email, password):
+    values = {'templateAPIID': templateID, 'Email': email, 'Password': password}
+    if values in data_list:
+        data_list.remove(values)
+    else:
+        data_list.append(values)
+    st.write(data_list)
+
 st.set_page_config(
     page_title="GetOurData API Selection",
     layout="wide"
@@ -31,34 +67,8 @@ with pw:
         password = st.text_input('Password:', type='password')
     if email != '':
         st.button('Submit')
-
-
     
-
 st.divider()
-
-def fetch_card_templates():
-    try:
-        url = 'https://app.getourdata.com/rest/v1/getourdata/getapi'
-        headers = {
-            'x-api-key': 'Vzg_5NsT6_zv1cLxvG5bSQ',
-            'content-type': 'application/json'
-        }
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Raise an exception for HTTP errors
-        data = response.json()
-        return data
-    except Exception as e:
-        print(e)
-        return []
-    
-def data_insert(templateID, email, password):
-    values = {'templateAPIID': templateID, 'Email': email, 'Password': password}
-    if values in data_list:
-        data_list.remove(values)
-    else:
-        data_list.append(values)
-    st.write(data_list)
     
 card_templates_data = fetch_card_templates()
 
@@ -168,7 +178,9 @@ for val in data:
                     data_list.remove(values)
                 else:
                     data_list.append(values)
-                #st.write(data_list)
+                st.write(data_list)
+            st.write('API Added')
+                
                 
                 
 # def data_insert(templateID, email, password):
