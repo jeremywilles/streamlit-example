@@ -65,7 +65,8 @@ with pw:
     if email != '':
         #st.button('Submit', on_click=post_to_vinyl, args=[data_list, email, password])
         if st.button('Submit'):
-            post_to_vinyl(data_list, email, password)
+            #post_to_vinyl(data_list, email, password)
+            st.write(data_list)
             st.subheader("Thank you for your submission! New users check for an email from GetOurData with login instructions.")
             st.subheader("Existing users login here:")
             st.link_button('GetOurData:' , "https://app.getourdata.com")
