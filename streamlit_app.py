@@ -179,13 +179,13 @@ def fetch_card_templates():
         print(e)
         return []
     
-def data_insert(templateID, email, password):
-    values = {'templateAPIID': templateID, 'Email': email, 'Password': password}
-    if values in data_list:
-        data_list.remove(values)
-    else:
-        data_list.append(values)
-    st.write(data_list)
+# def data_insert(templateID, email, password):
+#     values = {'templateAPIID': templateID, 'Email': email, 'Password': password}
+#     if values in data_list:
+#         data_list.remove(values)
+#     else:
+#         data_list.append(values)
+#     st.write(data_list)
               
                 
 # def data_insert(templateID, email, password):
