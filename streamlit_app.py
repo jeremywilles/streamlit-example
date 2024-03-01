@@ -83,10 +83,12 @@ card_templates_df = pd.DataFrame(card_templates_data['items'])
 #st.write(card_templates_data['items'])
 #st.write(card_templates_df)
 # adding a comment
-if 'data_list' not in st.session_state:
-    st.session_state['data_list'] = []
-
 data_list = []
+
+if 'data_list' not in st.session_state:
+    st.session_state['data_list'] = data_list
+
+#data_list = []
 
 data = card_templates_data['items']
 col1, col2, col3, col4 = st.columns(4, gap='small')
