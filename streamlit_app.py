@@ -18,10 +18,10 @@ def post_to_vinyl(data_list, email, password):
     url = 'https://app.getourdata.com/rest/v1/getourdata/tableaudataconnector'
 
     headers = {'X-API-KEY': "Vzg_5NsT6_zv1cLxvG5bSQ", "Content-Type": "application/json"}
-    # try:
-    #     requests.post(url, headers=headers, data=data_list)
-    # except Exception as error:
-    #      print("error posting to vinyl: ", error)
+    try:
+        requests.post(url, headers=headers, data=data_list)
+    except Exception as error:
+         print("error posting to vinyl: ", error)
     #st.write("I'm in your function writing data :X")
     #st.write(data_list)
 
