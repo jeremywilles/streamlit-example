@@ -131,7 +131,8 @@ for val in data:
                     data_list.remove(values)
                 else:
                     data_list.append(values)
-                st.write(data_list)
+                    st.session_state['data_list'] = data_list
+                st.write(st.session_state['data_list'])
                 st.write('API Added')
             
     if (count % 4 == 1):
@@ -168,7 +169,7 @@ for val in data:
                 else:
                     data_list.append(values)
                     st.session_state['data_list'] = data_list
-                st.write(dst.session_state['data_list'])
+                st.write(st.session_state['data_list'])
                 st.write('API Added')
     if (count % 4 == 2):
         with col2:
@@ -204,7 +205,7 @@ for val in data:
                 else:
                     data_list.append(values)
                     st.session_state['data_list'] = data_list
-                st.write(dst.session_state['data_list'])
+                st.write(st.session_state['data_list'])
                 st.write('API Added')
     if (count % 4 == 3):
         with col4:
@@ -242,7 +243,7 @@ for val in data:
                 else:
                     data_list.append(values)
                     st.session_state['data_list'] = data_list
-                st.write(dst.session_state['data_list'])
+                st.write(st.session_state['data_list'])
                 st.write('API Added')
                 
 
