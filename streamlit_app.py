@@ -10,9 +10,6 @@ def post_to_vinyl(data_list, email, password):
     url = 'https://app.getourdata.com/rest/v1/getourdata/tableaudataconnector'
 
     headers = {'X-API-KEY': "Vzg_5NsT6_zv1cLxvG5bSQ", "Content-Type": "application/json"}
-
-
-
     try:
         requests.post(url, headers=headers, data = data_list)
     except Exception as error:
@@ -63,6 +60,8 @@ name, pw, button1 = st.columns(3, gap='large')
 with pw:
     newuser = st.radio("",["New User", "Existing User"])
     email = st.text_input('Email:')
+    if newuser == 'New User':
+        password = ''
     if newuser == 'Existing User':
         password = st.text_input('Password:', type='password')
     if email != '':
