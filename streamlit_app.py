@@ -5,6 +5,8 @@ import streamlit as st
 import requests
 from streamlit_card import card
 
+data_list = []
+
 def post_to_vinyl(data_list, email, password):
     for item in data_list:
         if item['Email'] == '':
@@ -80,7 +82,7 @@ card_templates_df = pd.DataFrame(card_templates_data['items'])
 #st.write(card_templates_data['items'])
 #st.write(card_templates_df)
 # adding a comment
-data_list = []
+
 
 data = card_templates_data['items']
 col1, col2, col3, col4 = st.columns(4, gap='small')
