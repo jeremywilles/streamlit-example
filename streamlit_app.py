@@ -18,10 +18,12 @@ def post_to_vinyl(data_list, email, password):
     url = 'https://app.getourdata.com/rest/v1/getourdata/tableaudataconnector'
 
     headers = {'X-API-KEY': "Vzg_5NsT6_zv1cLxvG5bSQ", "Content-Type": "application/json"}
-    try:
-        requests.post(url, headers=headers, data=data_list)
-    except Exception as error:
-         print("error posting to vinyl: ", error)
+    # try:
+    #     requests.post(url, headers=headers, data=data_list)
+    # except Exception as error:
+    #      print("error posting to vinyl: ", error)
+    st.write("I'm in your function writing data :X")
+    st.write(data_list)
 
 def fetch_card_templates():
     try:
@@ -68,7 +70,9 @@ with pw:
         st.write(st.session_state['data_list'])
         #st.button('Submit', on_click=post_to_vinyl, args=[data_list, email, password])
         if st.button('Submit'):
-            #post_to_vinyl(data_list, email, password)
+            post_to_vinyl(st.session_state['data_list'], email, password)
+            st.write(email)
+            st.write(password)
             st.write(st.session_state['data_list'])
             st.subheader("Thank you for your submission! New users check for an email from GetOurData with login instructions.")
             st.subheader("Existing users login here:")
