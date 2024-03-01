@@ -18,12 +18,12 @@ def post_to_vinyl(data_list, email, password):
     url = 'https://app.getourdata.com/rest/v1/getourdata/tableaudataconnector'
 
     headers = {'X-API-KEY': st.secrets['api_post'], "Content-Type": "application/json"}
-    # try:
-    #     requests.post(url, headers=headers, data=data_list)
-    # except Exception as error:
-    #      print("error posting to vinyl: ", error)
+    try:
+        requests.post(url, headers=headers, data=data_list)
+    except Exception as error:
+         print("error posting to vinyl: ", error)
 
-    st.write(st.secrets['api_post'])
+    #st.write(st.secrets['api_post'])
     #st.write("I'm in your function writing data :X")
     #st.write(data_list)
 
@@ -69,7 +69,7 @@ with pw:
     if newuser == 'Existing User':
         password = st.text_input('Password:', type='password')
     if email != '':
-        st.write(st.session_state['data_list'])
+        #st.write(st.session_state['data_list'])
         #st.button('Submit', on_click=post_to_vinyl, args=[data_list, email, password])
         if st.button('Submit'):
             post_to_vinyl(st.session_state['data_list'], email, password)
@@ -139,7 +139,7 @@ for val in data:
                     data_list.append(values)
                     st.session_state['data_list'] = data_list
                 #st.write(st.session_state['data_list'])
-                st.write('API Added')
+                st.write('API Added!')
             
     if (count % 4 == 1):
         with col1:
@@ -176,7 +176,7 @@ for val in data:
                     data_list.append(values)
                     st.session_state['data_list'] = data_list
                 #st.write(st.session_state['data_list'])
-                st.write('API Added')
+                st.write('API Added!')
     if (count % 4 == 2):
         with col2:
             
@@ -212,7 +212,7 @@ for val in data:
                     data_list.append(values)
                     st.session_state['data_list'] = data_list
                 #st.write(st.session_state['data_list'])
-                st.write('API Added')
+                st.write('API Added!')
     if (count % 4 == 3):
         with col4:
             
@@ -250,7 +250,7 @@ for val in data:
                     data_list.append(values)
                     st.session_state['data_list'] = data_list
                 #st.write(st.session_state['data_list'])
-                st.write('API Added')
+                st.write('API Added!')
                 
 
 
