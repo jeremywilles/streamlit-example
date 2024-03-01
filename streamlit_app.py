@@ -6,12 +6,18 @@ import requests
 from streamlit_card import card
 
 def post_to_vinyl(data_list, email, password):
+    for item in data_list:
+        if item['Email'] == '':
+            item['Email'] = email
+            print(item['Email'])
+        if item['Password'] == '':
+            item['Password'] = password
 
     url = 'https://app.getourdata.com/rest/v1/getourdata/tableaudataconnector'
 
     headers = {'X-API-KEY': "Vzg_5NsT6_zv1cLxvG5bSQ", "Content-Type": "application/json"}
     try:
-        requests.post(url, headers=headers, data = data_list)
+        requests.post(url, headers=headers, data=data_list)
     except Exception as error:
          print("error posting to vinyl: ", error)
 
@@ -57,7 +63,13 @@ with pw:
     if newuser == 'Existing User':
         password = st.text_input('Password:', type='password')
     if email != '':
-        st.button('Submit')
+        #st.button('Submit', on_click=post_to_vinyl, args=[data_list, email, password])
+        if st.button('Submit'):
+            post_to_vinyl(data_list, email, password)
+            st.subheader("Thank you for your submission! New users check for an email from GetOurData with login instructions.")
+            st.subheader("Existing users login here:")
+            st.link_button('GetOurData:' , "https://app.getourdata.com")
+
     
 st.divider()
     
@@ -97,6 +109,21 @@ for val in data:
                 }
                 
             )
+            if res:
+                #st.write(res)
+                #st.write(val['templateAPIID'], email, password)
+                try:
+                    newPassword = password
+                except NameError:
+                    password = ''
+                values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
+                
+                if values in data_list:
+                    data_list.remove(values)
+                else:
+                    data_list.append(values)
+                #st.write(data_list)
+                st.write('API Added')
             
     if (count % 4 == 1):
         with col1:
@@ -118,6 +145,21 @@ for val in data:
                     }
                 }
             )
+            if res:
+                #st.write(res)
+                #st.write(val['templateAPIID'], email, password)
+                try:
+                    newPassword = password
+                except NameError:
+                    password = ''
+                values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
+                
+                if values in data_list:
+                    data_list.remove(values)
+                else:
+                    data_list.append(values)
+                #st.write(data_list)
+                st.write('API Added')
     if (count % 4 == 2):
         with col2:
             
@@ -138,6 +180,21 @@ for val in data:
                     }
                 }
             )
+            if res:
+                #st.write(res)
+                #st.write(val['templateAPIID'], email, password)
+                try:
+                    newPassword = password
+                except NameError:
+                    password = ''
+                values = {'templateAPIID': val['templateAPIID'], 'Email': email, 'Password': password}
+                
+                if values in data_list:
+                    data_list.remove(values)
+                else:
+                    data_list.append(values)
+                #st.write(data_list)
+                st.write('API Added')
     if (count % 4 == 3):
         with col4:
             
@@ -173,7 +230,7 @@ for val in data:
                     data_list.remove(values)
                 else:
                     data_list.append(values)
-                st.write(data_list)
+                #st.write(data_list)
                 st.write('API Added')
                 
 
