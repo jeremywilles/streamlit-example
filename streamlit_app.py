@@ -5,7 +5,7 @@ import streamlit as st
 import requests
 from streamlit_card import card
 
-data_list = []
+
 
 def post_to_vinyl(data_list, email, password):
     for item in data_list:
@@ -65,14 +65,14 @@ with pw:
     if newuser == 'Existing User':
         password = st.text_input('Password:', type='password')
     if email != '':
-        st.write(data_list)
+        st.write(st.session_state['data_list'])
         #st.button('Submit', on_click=post_to_vinyl, args=[data_list, email, password])
         if st.button('Submit'):
             #post_to_vinyl(data_list, email, password)
-            st.write(data_list)
+            st.write(st.session_state['data_list'])
             st.subheader("Thank you for your submission! New users check for an email from GetOurData with login instructions.")
             st.subheader("Existing users login here:")
-            st.link_button('GetOurData' , "https://app.getourdata.com")
+            st.link_button('GetOurData', "https://app.getourdata.com")
 
     
 st.divider()
@@ -83,7 +83,10 @@ card_templates_df = pd.DataFrame(card_templates_data['items'])
 #st.write(card_templates_data['items'])
 #st.write(card_templates_df)
 # adding a comment
+if 'data_list' not in st.session_state:
+    st.session_state['data_list'] = []
 
+data_list = []
 
 data = card_templates_data['items']
 col1, col2, col3, col4 = st.columns(4, gap='small')
@@ -162,7 +165,8 @@ for val in data:
                     data_list.remove(values)
                 else:
                     data_list.append(values)
-                st.write(data_list)
+                    st.session_state['data_list'] = data_list
+                st.write(dst.session_state['data_list'])
                 st.write('API Added')
     if (count % 4 == 2):
         with col2:
@@ -197,7 +201,8 @@ for val in data:
                     data_list.remove(values)
                 else:
                     data_list.append(values)
-                st.write(data_list)
+                    st.session_state['data_list'] = data_list
+                st.write(dst.session_state['data_list'])
                 st.write('API Added')
     if (count % 4 == 3):
         with col4:
@@ -234,7 +239,8 @@ for val in data:
                     data_list.remove(values)
                 else:
                     data_list.append(values)
-                st.write(data_list)
+                    st.session_state['data_list'] = data_list
+                st.write(dst.session_state['data_list'])
                 st.write('API Added')
                 
 
