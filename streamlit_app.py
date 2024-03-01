@@ -19,7 +19,7 @@ def post_to_vinyl(data_list, email, password):
     url = 'https://app.getourdata.com/rest/v1/getourdata/tableaudataconnector'
 
     headers = {'X-API-KEY': st.secrets['api_post'], "Content-Type": "application/json"}
-    for template in templates:
+    for template in data_list:
         try:
             response = requests.post(url, headers=headers, json=template)
             response.raise_for_status()
