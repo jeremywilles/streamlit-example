@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import requests
+import json
 from streamlit_card import card
 
 
@@ -19,7 +20,8 @@ def post_to_vinyl(data_list, email, password):
 
     headers = {'X-API-KEY': st.secrets['api_post'], "Content-Type": "application/json"}
     try:
-        requests.post(url, headers=headers, data=data_list)
+        json_data = json.dumps(data_list)
+        requests.post(url, headers=headers, data=json_data)
     except Exception as error:
          print("error posting to vinyl: ", error)
 
