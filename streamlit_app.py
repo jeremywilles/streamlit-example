@@ -19,11 +19,14 @@ def post_to_vinyl(data_list, email, password):
     url = 'https://app.getourdata.com/rest/v1/getourdata/tableaudataconnector'
 
     headers = {'X-API-KEY': st.secrets['api_post'], "Content-Type": "application/json"}
-    try:
-        json_data = json.dumps(data_list)
-        requests.post(url, headers=headers, data=json_data)
-    except Exception as error:
-         print("error posting to vinyl: ", error)
+    for template in templates:
+        try:
+            response = requests.post(url, headers=headers, json=template)
+            response.raise_for_status()
+            data = response.json()
+            #print("POST request successful:", data)
+        except Exception as error:
+            print("Error in POST request:", error)
 
     #st.write(st.secrets['api_post'])
     #st.write("I'm in your function writing data :X")
