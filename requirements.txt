@@ -3,4 +3,3 @@ pandas
 streamlit
 requests
 streamlit_card
-json
